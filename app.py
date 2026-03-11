@@ -17,7 +17,8 @@ from game import (
 )
 from visuals import get_hangman_svg, build_pmf_figure
 
-TITLE = "Information Theory Hangman"
+TITLE = "Entropy Hangman"
+SUBTITLE = "An Information-Theoretic Hangman Solver"
 
 st.set_page_config(page_title="Hangman", page_icon="hangman_favicon.svg", layout="wide")
 
@@ -314,6 +315,7 @@ def main():
     dictionary, words_dict = cached_load_words()
 
     st.title(TITLE)
+    st.subheader(SUBTITLE)
 
     valid_lengths = sorted([length for length in words_dict.keys() if 3 <= length <= 20])
 
