@@ -20,7 +20,7 @@ from visuals import get_hangman_svg, build_pmf_figure
 TITLE = "Entropy Hangman"
 SUBTITLE = "An Information-Theoretic Hangman Solver"
 
-st.set_page_config(page_title="Hangman", page_icon="hangman_favicon.svg", layout="wide")
+st.set_page_config(page_title="Entropy Hangman", page_icon="hangman_favicon.svg", layout="wide")
 
 KEYBOARD_ROWS = [
     list("qwertyuiop"),
