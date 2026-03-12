@@ -19,8 +19,9 @@ from visuals import get_hangman_svg, build_pmf_figure
 
 TITLE = "Entropy Hangman"
 SUBTITLE = "An Information-Theoretic Hangman Solver"
+HANGMAN_ICON_PATH = "hangman_favicon.svg"
 
-st.set_page_config(page_title="Entropy Hangman", page_icon="hangman_favicon.svg", layout="wide")
+st.set_page_config(page_title="Entropy Hangman", page_icon=HANGMAN_ICON_PATH, layout="wide")
 
 KEYBOARD_ROWS = [
     list("qwertyuiop"),
@@ -311,11 +312,19 @@ def simulate_entropy_solver_games(
 
     return incorrect_distribution, examples_by_bin
 
+def render_app_header() -> None:
+    """Render app icon and title in a single row."""
+    icon_col, title_col = st.columns([2, 20])
+    with icon_col:
+        st.image(HANGMAN_ICON_PATH, width=144)
+    with title_col:
+        st.title(TITLE)
+        st.subheader(SUBTITLE)
+
 def main():
     dictionary, words_dict = cached_load_words()
 
-    st.title(TITLE)
-    st.subheader(SUBTITLE)
+    render_app_header()
 
     valid_lengths = sorted([length for length in words_dict.keys() if 3 <= length <= 20])
 
